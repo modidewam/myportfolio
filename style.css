@@ -1,0 +1,1385 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #000000;
+    --secondary-color: #FFFFFF;
+    --accent-color: #E04E39; /* Accent color from skill bars, can adjust */
+    --text-color: #333333;
+    --light-gray: #F8F9FA;
+    --border-color: #DEE2E6;
+    --dark-bg: #111111; /* For dark buttons or elements */
+    --dm-bg: #121212;
+    --dm-text-color: #e0e0e0;
+    --dm-surface-color: #1e1e1e;
+    --dm-border-color: #2c2c2c;
+    --dm-primary-color: #ffffff; /* Primary color in dark mode (e.g., logo text) */
+    --dm-accent-color: #ff7043; /* A slightly brighter accent for dark mode */
+}
+
+.dark-mode {
+    --primary-color: var(--dm-primary-color);
+    --secondary-color: var(--dm-bg);
+    --accent-color: var(--dm-accent-color);
+    --text-color: var(--dm-text-color);
+    --light-gray: var(--dm-surface-color); /* Use surface for light gray equivalent */
+    --border-color: var(--dm-border-color);
+    --dark-bg: var(--dm-surface-color); /* Dark buttons in dark mode */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; margin-bottom: 1.5em; text-align: center; }
+h3 { font-size: 1.5rem; }
+
+.skills-section h2 { /* Specific styling for the title in this section */
+    color: var(--dm-text-color); /* Light text for dark background */
+    margin-bottom: 0.25em; /* Smaller bottom margin */
+}
+
+.skills-section h2::after { /* Underline effect for the title */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color); /* Use the primary accent color */
+    margin: 0.25em auto 0.75em; /* Center the underline */
+}
+
+.skills-subtitle {
+    text-align: center;
+    color: #aaa; /* Lighter gray for subtitle */
+    margin-bottom: 2.5em; /* Space before the cards */
+    font-size: 0.95rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-bg);
+    border-color: var(--dark-bg);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.btn-download {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+.btn-download:hover {
+    background-color: var(--light-gray);
+    border-color: var(--primary-color);
+}
+
+/* General Section Hover Effects */
+.hero,
+.about-me,
+.skills-section,
+.services,
+.works,
+.contact-me {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero:hover,
+.about-me:hover,
+.skills-section:hover,
+.services:hover,
+.works:hover,
+.contact-me:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); /* Shadow effect for sections */
+/* Section Specific Hover Background Colors */
+.hero:hover {
+    background-color: var(--light-gray); /* Or a slightly different shade */
+}
+
+.about-me:hover {
+    background-color: var(--secondary-color); /* Or a slightly different shade */
+}
+
+.skills-section:hover {
+    background-color: #1f1f1f; /* A slightly lighter dark shade for skills section */
+}
+
+.services:hover {
+    background-color: var(--light-gray);
+}
+
+.works:hover {
+    background-color: var(--secondary-color);
+}
+
+.contact-me:hover {
+    background-color: var(--light-gray);
+}
+}
+
+/* Header */
+header {
+    padding: 20px 0;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+header nav {
+    display: flex; /* Arrange ul and buttons in a row */
+    align-items: center; /* Vertically align items in the nav bar */
+}
+
+header nav ul {
+    display: flex;
+    margin-right: 20px; /* Add space between nav links and subsequent items */
+}
+
+header nav ul li {
+    margin-left: 30px;
+}
+
+header nav ul li a {
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: var(--accent-color);
+}
+
+#darkModeToggle {
+    background-color: var(--light-gray); /* Subtle background */
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 15px; /* Adjusted from auto to give some space from nav links if nav-toggle is hidden */
+    padding: 8px 10px; /* Slightly more padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border-radius: 50%; /* Make it circular */
+    width: 40px; /* Explicit width for circle */
+    height: 40px; /* Explicit height for circle */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#darkModeToggle:hover {
+    background-color: var(--border-color); /* Darken background on hover */
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#darkModeToggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color); /* Focus ring */
+}
+
+/* Styles for when dark mode is active */
+.dark-mode #darkModeToggle {
+    background-color: var(--dm-surface-color);
+    border-color: var(--dm-border-color);
+    color: var(--dm-text-color);
+}
+
+.dark-mode #darkModeToggle:hover {
+    background-color: var(--dm-border-color); /* Slightly different hover for dark mode */
+    color: var(--dm-accent-color);
+    border-color: var(--dm-accent-color);
+    box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+}
+
+.dark-mode #darkModeToggle:focus {
+    box-shadow: 0 0 0 2px var(--dm-accent-color);
+}
+
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border-color); /* Added border for consistency */
+    cursor: pointer;
+    padding: 7px; /* Adjusted padding for border */
+    line-height: 1; /* Improve icon vertical alignment */
+    border-radius: 5px; /* Optional: for rounded corners */
+    /* margin-left: auto; Removed as darkModeToggle now handles pushing to right */
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-color);
+    left: 0;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex-basis: 55%;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.hero-text h1 {
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.hero-text .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color); /* Adjusted for dark mode */
+    margin-bottom: 2px;
+}
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color);
+}
+
+.hero-buttons .btn {
+    margin-right: 15px;
+}
+
+.hero-image {
+    flex-basis: 40%;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 500px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; 
+    border-radius: 5%; /* Optional: if image has rounded corners */
+}
+
+/* About Me Section */
+.about-me {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center; /* Center content like about-text block */
+    gap: 40px;
+}
+
+.about-text {
+    flex-basis: 55%;
+    text-align: center; /* Center align text within about-text */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: var(--text-color); /* Adjusted for dark mode */
+}
+
+.about-text h2 {
+    margin-bottom: 20px;
+    color: var(--primary-color); /* Adjusted for dark mode */
+    text-align: center; /* Center align h2 as well if it's part of the "about text" */
+}
+
+.skill-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Further Increased card size */
+    gap: 30px; /* Slightly increased gap */
+}
+
+.skill-card {
+    background-color: #262626; /* Darker card background */
+    padding: 30px 20px; /* Adjusted padding for larger card */
+    border-radius: 12px; /* Slightly larger border radius */
+    text-align: center;
+    color: var(--accent-color); /* Changed to accent color for skill names */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 150px; /* Set fixed width */
+    height: 150px; /* Set fixed height */
+    display: flex; /* Enable flexbox for centering content */
+    flex-direction: column; /* Stack icon and text vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.skill-card i {
+    font-size: 80px; /* Further Increased icon size for better visibility */
+    margin-bottom: 12px; /* Adjusted margin to ensure text fits well */
+    color: #E04E39; /* Icon color */
+}
+
+.skill-card p {
+    font-size: 0.9rem; /* Adjusted font size slightly if needed for balance */
+    font-weight: 500;
+    margin: 0;
+    color: var(--dm-text-color); /* Text color for skill names, ensuring visibility on dark card */
+}
+
+/* Skills Section */
+.skills-section {
+    padding: 80px 0;
+    background-color: #121212; /* Dark background for the section */
+}
+
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+}
+
+.service-grid-container { /* Changed from .services .container */
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.service-item {
+    flex-basis: calc(33.333% - 20px);
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.service-item i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.service-item p {
+    font-size: 0.95rem;
+    color: var(--text-color); /* Adjusted for dark mode */
+}
+
+/* Works Section */
+.works {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.work-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.work-item:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Contact Me Section */
+.contact-me {
+    padding: 80px 0;
+    background-color: var(--secondary-color);
+}
+
+.contact-me form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-me input,
+.contact-me textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.contact-me input:focus,
+.contact-me textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.1);
+}
+
+.contact-me button {
+    width: auto;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg); /* Will be --dm-surface-color in dark mode */
+    color: var(--text-color); /* Will be --dm-text-color in dark mode */
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-text {
+        flex-basis: 100%;
+        margin-bottom: 40px;
+    }
+    .hero-image {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .hero-image img {
+        max-width: 300px;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text { /* .skills is no longer part of this flex layout */
+        margin: auto;
+        flex-basis: 100%;
+    }
+    .skill-cards-grid { /* Adjust skill cards grid for mobile */
+        flex-basis: 100%;
+    }
+    .skill-cards-grid { /* Adjust skill cards grid for mobile */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Smaller cards on mobile */
+        gap: 15px;
+    }
+    .skill-card img { /* Adjust image size for mobile if needed */
+        width: 40px;
+        height: 40px;
+    }
+    .skill-card p {
+        font-size: 0.85rem;
+    }
+    .services .container {
+        flex-direction: column;
+    }
+    .service-item {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+    }
+    .service-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Adjust header nav link spacing for tablets */
+    header nav ul li {
+        margin-left: 20px; /* Reduced from 30px */
+    }
+    header nav ul {
+        margin-right: 15px; /* Reduced from 20px */
+    }
+}
+
+@media (max-width: 767px) {
+    .logo { font-size: 1.5rem; }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.7rem; }
+
+    header nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color); /* Will be --dm-bg in dark mode */
+        border-top: 1px solid var(--border-color); /* Will be --dm-border-color in dark mode */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        display: none; /* Initially hidden */
+    }
+    header nav.active {
+        display: flex;
+    }
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    header nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .nav-toggle.active .hamburger {
+        background-color: transparent; /* Hide middle line */
+    }
+    .nav-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+    .nav-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .hero { padding: 60px 0; }
+    .hero-text .subtitle { font-size: 1rem; }
+    .social-icons a { font-size: 1.1rem; margin-right: 15px; }
+    .hero-buttons .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+        margin-bottom: 10px; /* Stack buttons on mobile */
+    }
+    .hero-buttons .btn:last-child { margin-bottom: 0; }
+
+
+    .about-me, .services, .works, .contact-me {
+        padding: 60px 0;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+.footer-content {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        gap: 30px; /* Add more gap when stacked */
+    }
+    .footer-details-left,
+    .footer-details-right {
+        text-align: center; /* Center text for both columns */
+        align-items: center; /* Center items within the right column */
+    }
+    .footer-info {
+        text-align: center; /* Center contact info */
+    }
+    .footer-social {
+        justify-content: center; /* Center social icons */
+    }
+    .copyright {
+        font-size: 1rem; /* Adjust copyright font size */
+    }
+
+    /* Skill cards adjustments for 767px */
+    .skill-card {
+        width: auto; /* Allow cards to take available width within grid */
+        height: auto; /* Allow height to adjust based on content */
+        padding: 20px 15px; /* Adjust padding */
+    }
+    .skill-card i {
+        font-size: 3rem; /* Slightly smaller icons */
+        margin-bottom: 10px;
+    }
+    .skill-card p {
+        font-size: 0.8rem;
+    }
+     .skill-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Smaller minmax for cards */
+        gap: 10px;
+    }
+
+    /* Carousel adjustments */
+    .carousel-slide img {
+        max-height: 300px; /* Adjust max height for mobile */
+    }
+    .slide-caption h3 {
+        font-size: 1.1rem;
+    }
+    .slide-caption p {
+        font-size: 0.8rem;
+    }
+    .carousel-control {
+        padding: 8px 12px;
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
+    .carousel-control.prev {
+        left: 10px;
+    }
+    .carousel-control.next {
+        right: 10px;
+    }
+}
+/* Styling for .work-item-info */
+.work-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex; /* Added to allow image and info to be part of a flex layout if needed */
+    flex-direction: column; /* Stack image and info vertically */
+}
+
+/* .work-item img is already styled, ensure it fits well with the new structure */
+/* If you want the image to take up a certain proportion or have a fixed height, adjust here */
+
+.work-item-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.work-item-info h3 {
+    font-size: 1.2rem;
+    margin-top: 0; /* Remove default top margin if any */
+    margin-bottom: 8px;
+    color: var(--primary-color);
+}
+
+.work-item-info p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 0; /* Remove default bottom margin if any */
+}
+/* Project Carousel Styles */
+.project-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Optional: if you want rounded corners for the carousel container */
+}
+
+.carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: relative; /* For caption positioning */
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 450px; /* Adjust as needed */
+    object-fit: cover;
+    display: block;
+    border-radius: 8px; /* Match container or remove if not needed */
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--secondary-color);
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 8px; /* Match image/container */
+    border-bottom-right-radius: 8px; /* Match image/container */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, visibility 0s linear 0.4s; /* Delay visibility change to allow opacity transition */
+}
+
+ .slide-caption {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s; /* Apply immediately when slide is active */
+}
+
+.slide-caption h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    color: var(--secondary-color); /* Ensure heading is visible */
+}
+
+.slide-caption p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%; /* Circular buttons */
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control.prev {
+    left: 15px;
+}
+
+.carousel-control.next {
+    right: 15px;
+}
+
+/* Adjustments for .works section if needed */
+.works .container {
+    max-width: 900px; /* Or adjust as per your design preference for the carousel width */
+}
+
+.works h2 {
+    color: var(--text-color); /* Ensure heading is visible in light/dark mode */
+}
+
+.dark-mode .works h2 {
+    color: var(--dm-text-color);
+}
+
+.dark-mode .slide-caption {
+    background-color: rgba(0, 0, 0, 0.8); /* Lighter caption bg for dark mode */
+    color: var(--dm-text-color);
+}
+
+.dark-mode .slide-caption h3 {
+    color: var(--dm-primary-color);
+}
+
+.dark-mode .carousel-control {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--dm-text-color);
+}
+
+.dark-mode .carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Footer Styles */
+footer {
+    background-color: var(--dark-bg); /* Or var(--primary-color) if you prefer that for footer bg */
+    color: var(--light-gray); /* Light text for dark background */
+    padding: 40px 0 20px; /* Added more padding, reduced bottom padding for copyright */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row; /* Align items in a row */
+    justify-content: space-between; /* Push left and right content to edges */
+    align-items: center; /* Vertically align items in the center */
+    gap: 20px;
+}
+
+.footer-details-left {
+    text-align: left;
+}
+
+.footer-details-right {
+    display: flex;
+    flex-direction: column; /* Stack info and social vertically on the right */
+    align-items: flex-end; /* Align items to the right */
+    gap: 10px; /* Space between info and social links */
+    font-size: 1.2rem; /* Slightly larger text for better visibility */
+}
+
+.footer-info {
+    text-align: right; /* Align text within footer-info to the right */
+}
+
+.footer-info p {
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.footer-info a {
+    color: var(--light-gray);
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px; /* Space between social icons */
+    margin-bottom: 10px; /* Space before copyright */
+}
+
+.footer-social a {
+    color: var(--light-gray);
+    font-size: 1.6rem; /* Larger icons */
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    font-size: 1.2rem;
+    margin-top: 10px; /* Ensure some space if flex-direction changes */
+}
+
+/* Dark mode adjustments for footer if not already covered by variables */
+.dark-mode footer {
+    background-color: var(--dm-surface-color); /* Example: using surface color for dark mode footer */
+    color: var(--dm-text-color);
+}
+
+.dark-mode .footer-info a {
+    color: var(--dm-text-color);
+}
+
+.dark-mode .footer-info a:hover {
+    color: var(--dm-accent-color);
+}
+
+.dark-mode .footer-social a {
+    color: var(--dm-text-color);
+}
+
+.dark-mode .footer-social a:hover {
+    color: var(--dm-accent-color);
+}
+/* GitHub link in Works Section */
+.github-works-link {
+    text-align: center;
+    margin-bottom: 30px; /* Space between button and carousel */
+}
+
+.github-works-link .btn {
+    padding: 12px 25px; /* Adjust padding as needed */
+    font-size: 0.95rem;
+}
+
+.github-works-link .btn i {
+    margin-left: 8px; /* Space between text and icon */
+}
+
+/* Adjustments for dark mode if .btn-secondary needs specific overrides */
+.dark-mode .github-works-link .btn-secondary {
+    color: var(--dm-text-color);
+    border-color: var(--dm-border-color);
+}
+
+.dark-mode .github-works-link .btn-secondary:hover {
+    background-color: var(--dm-accent-color);
+    color: var(--dm-bg); /* Or var(--dm-primary-color) if that looks better */
+    border-color: var(--dm-accent-color);
+}
+/* Project Link in Carousel Slide */
+.carousel-slide .project-link {
+    display: block; /* Make the link a block to encompass image and caption */
+    text-decoration: none; /* Remove default underline */
+    color: inherit; /* Inherit text color from parent */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px; /* Match image/slide border-radius */
+    overflow: hidden; /* Ensure content respects border-radius */
+}
+
+.carousel-slide .project-link:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.carousel-slide .project-link:focus {
+    outline: 2px solid var(--accent-color); /* Accessibility focus outline */
+    outline-offset: 2px;
+}
+
+.dark-mode .carousel-slide .project-link:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.08);
+}
+
+.dark-mode .carousel-slide .project-link:focus {
+    outline-color: var(--dm-accent-color);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Reduce base font size */
+    }
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 1em; }
+    h3 { font-size: 1.2rem; }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+    .btn-download {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    header nav ul li {
+        margin: 8px 0;
+    }
+    #darkModeToggle {
+        font-size: 1rem;
+        padding: 6px 8px;
+        width: 35px;
+        height: 35px;
+    }
+    .nav-toggle {
+        padding: 5px;
+    }
+    .hamburger {
+        width: 22px;
+        height: 2px;
+    }
+    .hamburger::before { top: -6px; width: 22px; height: 2px;}
+    .hamburger::after { top: 6px; width: 22px; height: 2px;}
+
+
+    .hero { padding: 40px 0; }
+    .hero-text p { font-size: 0.9rem; }
+    .hero-text h1 { margin-bottom: 8px; }
+    .hero-text .subtitle { font-size: 0.9rem; }
+    .social-icons a { font-size: 1rem; margin-right: 10px; }
+    .hero-buttons .btn { margin-right: 10px; margin-bottom: 8px; }
+    .hero-image img { max-width: 220px; }
+
+
+    .about-me, .services, .works, .contact-me, .skills-section {
+        padding: 40px 0;
+    }
+    .about-text p { font-size: 0.9rem; }
+
+    .skills-section h2::after {
+        width: 50px;
+        height: 2px;
+        margin: 0.2em auto 0.6em;
+    }
+    .skills-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5em;
+    }
+    .skill-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Even smaller cards */
+        gap: 8px;
+    }
+    .skill-card {
+        padding: 15px 10px;
+    }
+    .skill-card i {
+        font-size: 2.5rem;
+        margin-bottom: 8px;
+    }
+    .skill-card p {
+        font-size: 0.75rem;
+    }
+
+    .service-item {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+    .service-item i {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .service-item h3 {
+        font-size: 1.1rem;
+    }
+    .service-item p {
+        font-size: 0.85rem;
+    }
+
+    .work-grid {
+        gap: 20px;
+    }
+    .work-item-info {
+        padding: 10px;
+    }
+    .work-item-info h3 {
+        font-size: 1rem;
+    }
+    .work-item-info p {
+        font-size: 0.8rem;
+    }
+
+    .project-carousel {
+        border-radius: 6px;
+    }
+    .carousel-slide img {
+        max-height: 250px; /* Further reduce image height */
+        border-radius: 6px;
+    }
+    .slide-caption {
+        padding: 10px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    .slide-caption h3 {
+        font-size: 1rem;
+    }
+    .slide-caption p {
+        font-size: 0.75rem;
+    }
+    .carousel-control {
+        padding: 6px 10px;
+        font-size: 1rem;
+        width: 30px;
+        height: 30px;
+    }
+     .carousel-control.prev {
+        left: 8px;
+    }
+    .carousel-control.next {
+        right: 8px;
+    }
+    .github-works-link .btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+
+    .contact-me form {
+        max-width: 100%;
+    }
+    .contact-me input,
+    .contact-me textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    footer {
+        padding: 30px 0 15px;
+    }
+    .footer-content {
+        gap: 20px;
+    }
+    .footer-details-left p, .footer-info p {
+        font-size: 0.85rem;
+    }
+    .footer-social a {
+        font-size: 1.3rem;
+        gap: 15px;
+    }
+    .copyright {
+        font-size: 0.8rem;
+        margin-top: 15px;
+    }
+}
+
+/* Responsive Design for very small screens (e.g., 320px-360px width) */
+@media (max-width: 360px) {
+    body {
+        font-size: 13px; /* Further reduce base font size */
+    }
+    .container {
+        padding: 0 8px; /* Slightly less padding */
+    }
+
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.3rem; }
+    h3 { font-size: 1.1rem; }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+    .btn-download {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
+    header {
+        padding: 12px 0;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+    #darkModeToggle {
+        font-size: 0.9rem;
+        padding: 5px 7px;
+        width: 32px;
+        height: 32px;
+    }
+    .nav-toggle {
+        padding: 4px;
+    }
+    .hamburger {
+        width: 20px;
+        height: 2px;
+    }
+    .hamburger::before { top: -5px; width: 20px; height: 2px;}
+    .hamburger::after { top: 5px; width: 20px; height: 2px;}
+
+
+    .hero { padding: 30px 0; }
+    .hero-text p { font-size: 0.85rem; }
+    .hero-text h1 { margin-bottom: 6px; }
+    .hero-text .subtitle { font-size: 0.85rem; }
+    .social-icons a { font-size: 0.9rem; margin-right: 8px; }
+    .hero-buttons .btn { margin-right: 8px; margin-bottom: 6px; }
+    .hero-image img { max-width: 180px; }
+
+
+    .about-me, .services, .works, .contact-me, .skills-section {
+        padding: 30px 0;
+    }
+    .about-text p { font-size: 0.85rem; }
+
+    .skills-section h2::after {
+        width: 40px;
+        margin: 0.15em auto 0.5em;
+    }
+    .skills-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 1.2em;
+    }
+    .skill-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        gap: 6px;
+    }
+    .skill-card {
+        padding: 12px 8px;
+    }
+    .skill-card i {
+        font-size: 2rem;
+        margin-bottom: 6px;
+    }
+    .skill-card p {
+        font-size: 0.7rem;
+    }
+
+    .service-item {
+        padding: 15px 10px;
+        margin-bottom: 15px;
+    }
+    .service-item i {
+        font-size: 1.8rem;
+        margin-bottom: 12px;
+    }
+    .service-item h3 {
+        font-size: 1rem;
+    }
+    .service-item p {
+        font-size: 0.8rem;
+    }
+
+    .work-item-info h3 {
+        font-size: 0.9rem;
+    }
+    .work-item-info p {
+        font-size: 0.75rem;
+    }
+
+    .carousel-slide img {
+        max-height: 200px;
+    }
+    .slide-caption {
+        padding: 8px;
+    }
+    .slide-caption h3 {
+        font-size: 0.9rem;
+    }
+    .slide-caption p {
+        font-size: 0.7rem;
+    }
+    .carousel-control {
+        padding: 5px 8px;
+        font-size: 0.9rem;
+        width: 28px;
+        height: 28px;
+    }
+     .carousel-control.prev {
+        left: 6px;
+    }
+    .carousel-control.next {
+        right: 6px;
+    }
+    .github-works-link .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+
+    .contact-me input,
+    .contact-me textarea {
+        padding: 8px;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    footer {
+        padding: 25px 0 10px;
+    }
+    .footer-details-left p, .footer-info p {
+        font-size: 0.8rem;
+    }
+    .footer-social a {
+        font-size: 1.1rem;
+        gap: 12px;
+    }
+    .copyright {
+        font-size: 0.75rem;
+        margin-top: 12px;
+    }
+}
