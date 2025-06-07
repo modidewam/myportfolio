@@ -914,6 +914,7 @@ footer p {
 .dark-mode .slide-caption {
     background-color: rgba(0, 0, 0, 0.8); /* Lighter caption bg for dark mode */
     color: var(--dm-text-color);
+    height: 90px;
 }
 
 .dark-mode .slide-caption h3 {
