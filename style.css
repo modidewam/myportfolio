@@ -1193,7 +1193,7 @@ footer {
         border-radius: 6px;
     }
     .carousel-slide img {
-        max-height: 250px; /* Further reduce image height */
+        max-height: 450px; /* Further reduce image height */
         border-radius: 6px;
     }
     .slide-caption {
