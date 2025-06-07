@@ -943,7 +943,6 @@ footer {
     align-items: flex-start; /* Align items to the top */
     flex-wrap: nowrap;
     align-items: center;
-    gap: 20px;
 }
 
 .footer-details-left {
