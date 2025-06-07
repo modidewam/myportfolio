@@ -938,9 +938,11 @@ footer {
 
 .footer-content {
     display: flex;
-    flex-direction: row; /* Align items in a row */
-    justify-content: space-between; /* Push left and right content to edges */
-    align-items: center; /* Vertically align items in the center */
+    flex-direction: column; /* Align items in a row */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 20px;
 }
 
@@ -951,13 +953,14 @@ footer {
 .footer-details-right {
     display: flex;
     flex-direction: column; /* Stack info and social vertically on the right */
-    align-items: flex-end; /* Align items to the right */
+    align-items: center; /* Center items horizontally */
+    align-self: center; /* Align this specific item to the bottom of the flex container */
     gap: 10px; /* Space between info and social links */
     font-size: 1.2rem; /* Slightly larger text for better visibility */
 }
 
 .footer-info {
-    text-align: right; /* Align text within footer-info to the right */
+    text-align: center; /* Center text within footer-info */
 }
 
 .footer-info p {
@@ -977,6 +980,7 @@ footer {
 
 .footer-social {
     display: flex;
+    justify-content: center; /* Center social icons */
     gap: 20px; /* Space between social icons */
     margin-bottom: 10px; /* Space before copyright */
 }
