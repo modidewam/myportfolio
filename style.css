@@ -602,7 +602,7 @@ footer p {
     .skill-card p {
         font-size: 0.85rem;
     }
-    .services .container {
+    .service-grid-container { /* Changed from .services .container to target the correct flex parent */
         flex-direction: column;
     }
     .service-item {
@@ -627,29 +627,52 @@ footer p {
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.7rem; }
 
+    /* On mobile, header nav itself remains in flow. Its ul child becomes the dropdown. */
     header nav {
+        /* Inherits display:flex, align-items:center from desktop. */
+        /* This container will hold nav-toggle and darkModeToggle on mobile, */
+        /* as ul will be absolutely positioned. */
+    }
+
+    header nav ul { /* This is the actual dropdown menu for navigation links */
         position: absolute;
-        top: 100%;
+        top: 100%; /* Position below the <header> element */
         left: 0;
-        width: 100%;
+        width: 100%; /* Full width of the <header> element */
         background-color: var(--secondary-color); /* Will be --dm-bg in dark mode */
         border-top: 1px solid var(--border-color); /* Will be --dm-border-color in dark mode */
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 0;
-        display: none; /* Initially hidden */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: add shadow for better separation */
+        
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center; /* Center items in the dropdown */
+        padding: 15px 0;    /* Padding for the dropdown content area */
+        display: none;      /* Initially hidden */
+        z-index: 999;       /* Ensure dropdown is on top */
     }
-    header nav.active {
-        display: flex;
+
+    header nav.active ul { /* When nav element (toggled by JS) has .active class */
+        display: flex;     /* Show the dropdown menu */
     }
-    header nav ul {
-        flex-direction: column;
-        width: 100%;
-    }
+
+    /* Styling for list items within the dropdown */
     header nav ul li {
         margin: 10px 0;
         text-align: center;
+        width: 100%; /* Make list items take full width of the dropdown */
     }
+    
+    /* Optional: Make tap targets in dropdown larger for better UX */
+    header nav ul li a {
+        padding: 10px 20px;
+        display: block;
+    }
+
+    /* The .nav-toggle is already set to display:block in this media query (line 654) */
+    /* The #darkModeToggle retains its default display:flex and margin-left:15px (line 238) */
+    /* HTML order is ul, nav-toggle, darkModeToggle. ul is now out of flow. */
+    /* So, nav-toggle will appear, then darkModeToggle to its right. */
+    /* If specific spacing or order is needed between nav-toggle and darkModeToggle: */
+    /* e.g., header nav > .nav-toggle { margin-right: 10px; } */
     .nav-toggle {
         display: block;
     }
