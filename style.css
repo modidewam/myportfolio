@@ -783,7 +783,7 @@ footer p {
 
 .work-item-info {
     padding: 15px;
-    text-align: left;
+    text-align: left; /* Align text to the left for better readability */
 }
 
 .work-item-info h3 {
@@ -918,7 +918,7 @@ footer p {
 }
 
 .dark-mode .slide-caption h3 {
-    color: var(--dm-primary-color);
+    color: var(--dm-primary-color);    
 }
 
 .dark-mode .carousel-control {
